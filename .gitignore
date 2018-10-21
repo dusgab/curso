@@ -13,3 +13,4 @@ yarn-error.log
 /.scannerwork
 /tests/reportes/
 .env.dusk.local
+.env
