@@ -80,7 +80,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-6" style="margin-top: 20px;">
                 <center>
-                <p class="links"><a href="{{ url('/') }}">Inicio </a><strong> · </strong><a href="{{ url('/perfil') }}">Perfil </a><strong> · </strong><a href="{{ url('/productos') }}">Productos </a></p>
+                <p class="links"><a href="{{ url('/home') }}">Inicio </a><strong> · </strong><a href="{{ url('/perfil') }}">Perfil </a><strong> · </strong><a href="{{ url('/productos') }}">Productos </a></p>
                 </center>
             </div>
             <div class="col-md-4 col-sm-6" style="margin-top: 20px;">
