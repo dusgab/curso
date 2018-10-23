@@ -19,27 +19,33 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Cargar perfil de usuario.
+     */
     public function perfil()
     {
-        $user = User::find(Auth::user()->id);
+        $user = User::find(Auth::user()->id); //Busqueda de usuario por id.
 
-        return view('usuarios/perfil', array('user' => $user));
+        return view('usuarios/perfil', array('user' => $user)); //Envío a vista del usuario encontrado.
     }
 
+    /**
+     * Editar perfil de usuario.
+     */
     public function editarPerfil(Request $request)
     {
-        $user = User::FindOrFail(Auth::user()->id);
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user = User::FindOrFail(Auth::user()->id); //Busqueda de usuario por id.
+        $user->name = $request->name; //Captura de campo name.
+        $user->email = $request->email; //Captura de campo email.
 
-        if($user->password !== $request->password)
+        if($user->password !== $request->password) //Verificación de password modificado.
         {
-            $user->password = bcrypt($request->password);
+            $user->password = bcrypt($request->password); //Captura de campo password.
         }
         
-        $user->save();
+        $user->save(); //Update en la base de datos.
 
-        Session::flash('mensaje', 'Perfil actualizado!');
-        return back();
+        Session::flash('mensaje', 'Perfil actualizado!'); //Cargar mensaje flash.
+        return back(); //Volver a la vista.
     }
 }
